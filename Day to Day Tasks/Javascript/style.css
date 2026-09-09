@@ -1,0 +1,1691 @@
+/* =====================================================
+   VARIABLES
+===================================================== */
+
+:root {
+
+    --primary: #FE4A51;
+    --primary-dark: #C81118;
+
+    --text: #6B7280;
+
+    --accent-pink: #FFD0D2;
+    --accent-light: #EFEFEF;
+    --accent-gray: #C3C4C4;
+
+    --black: #111111;
+    --white: #ffffff;
+
+}
+
+
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+
+    font-family: "Lato", sans-serif;
+
+    color: var(--black);
+
+    background: white;
+
+}
+
+
+button,
+input,
+textarea,
+select {
+    font-family: inherit;
+}
+
+
+button {
+    cursor: pointer;
+}
+
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.header {
+
+    width: 100%;
+
+    height: 125px;
+
+    position: fixed;
+
+    top: 0;
+
+    left: 0;
+
+    z-index: 1000;
+
+    background: rgba(255, 255, 255, 0.85);
+
+    backdrop-filter: blur(8px);
+
+    border-bottom: 1px solid #ddd;
+
+}
+
+
+.header-container {
+
+    height: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 35px;
+
+    padding: 0 32px;
+
+}
+
+
+/* LOGO */
+
+.logo {
+
+    min-width: 150px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 5px;
+
+}
+
+
+.logo-icon {
+
+    font-size: 50px;
+
+}
+
+
+.logo-text {
+
+    color: #D33B22;
+
+    font-size: 28px;
+
+    font-weight: 900;
+
+    font-style: italic;
+
+}
+
+
+.logo-text span {
+
+    color: #D33B22;
+
+}
+
+
+.logo-text small {
+
+    display: block;
+
+    color: #444;
+
+    font-size: 6px;
+
+    letter-spacing: 1px;
+
+    text-align: center;
+
+    font-style: normal;
+
+}
+
+
+/* SEARCH */
+
+.search-box {
+
+    width: 535px;
+
+    height: 62px;
+
+    border: 1px solid #d2d2d2;
+
+    border-radius: 35px;
+
+    display: flex;
+
+    align-items: center;
+
+    padding: 0 25px;
+
+    background: rgba(255,255,255,0.95);
+
+}
+
+
+.search-box i {
+
+    font-size: 25px;
+
+    margin-right: 20px;
+
+}
+
+
+.search-box input {
+
+    border: none;
+
+    outline: none;
+
+    width: 100%;
+
+    font-size: 19px;
+
+    color: var(--black);
+
+}
+
+
+.search-box input::placeholder {
+
+    color: #888;
+
+}
+
+
+/* NAV */
+
+.navbar {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 45px;
+
+    white-space: nowrap;
+
+}
+
+
+.navbar a {
+
+    font-size: 25px;
+
+    transition: 0.2s;
+
+}
+
+
+.navbar a:hover {
+
+    color: var(--primary);
+
+}
+
+
+/* ACCOUNT */
+
+.account-btn {
+
+    margin-left: auto;
+
+    background: none;
+
+    border: none;
+
+    font-size: 24px;
+
+    white-space: nowrap;
+
+}
+
+
+/* SUBSCRIBE */
+
+.subscribe-btn {
+
+    border: none;
+
+    background: var(--primary);
+
+    color: white;
+
+    font-size: 23px;
+
+    padding: 14px 40px;
+
+    border-radius: 35px;
+
+    white-space: nowrap;
+
+}
+
+
+.subscribe-btn:hover {
+
+    background: var(--primary-dark);
+
+}
+
+
+/* MOBILE */
+
+.mobile-menu-btn {
+
+    display: none;
+
+    background: none;
+
+    border: none;
+
+    font-size: 25px;
+
+}
+
+
+/* =====================================================
+   PAGE SYSTEM
+===================================================== */
+
+.page {
+
+    display: none;
+
+    padding-top: 125px;
+
+    min-height: 100vh;
+
+}
+
+
+.active-page {
+
+    display: block;
+
+}
+
+
+/* =====================================================
+   HOME HERO
+===================================================== */
+
+.hero {
+
+    height: 610px;
+
+    position: relative;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    background-image: url(
+        "https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=2000&q=85"
+    );
+
+    background-size: cover;
+
+    background-position: center;
+
+}
+
+
+.hero-overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    background: rgba(255,255,255,0.48);
+
+}
+
+
+.hero-content {
+
+    position: relative;
+
+    z-index: 2;
+
+    text-align: center;
+
+    max-width: 900px;
+
+}
+
+
+.hero-content h1 {
+
+    font-size: 48px;
+
+    font-weight: 400;
+
+    margin-bottom: 40px;
+
+}
+
+
+.hero-content p {
+
+    font-size: 26px;
+
+    line-height: 1.3;
+
+    max-width: 700px;
+
+    margin: auto;
+
+}
+
+
+.hero-buttons {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 60px;
+
+    margin-top: 80px;
+
+}
+
+
+.primary-btn,
+.outline-btn {
+
+    padding: 14px 27px;
+
+    border-radius: 35px;
+
+    font-size: 24px;
+
+    border: 1px solid var(--primary);
+
+}
+
+
+.primary-btn {
+
+    background: var(--primary);
+
+    color: white;
+
+}
+
+
+.primary-btn:hover {
+
+    background: var(--primary-dark);
+
+}
+
+
+.outline-btn {
+
+    background: white;
+
+    color: var(--black);
+
+}
+
+
+.outline-btn:hover {
+
+    background: var(--accent-pink);
+
+}
+
+
+/* =====================================================
+   HOME CONTENT
+===================================================== */
+
+.home-content {
+
+    padding: 60px 5%;
+
+}
+
+
+.home-content h2 {
+
+    font-size: 32px;
+
+    margin-bottom: 30px;
+
+}
+
+
+.home-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 30px;
+
+}
+
+
+.mini-card {
+
+    display: flex;
+
+    border: 1px solid #ccc;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    min-height: 280px;
+
+}
+
+
+.mini-card img {
+
+    width: 40%;
+
+    object-fit: cover;
+
+}
+
+
+.mini-card-content {
+
+    padding: 30px;
+
+}
+
+
+.mini-card-content span {
+
+    color: var(--primary);
+
+}
+
+
+.mini-card-content h3 {
+
+    font-size: 25px;
+
+    margin: 12px 0;
+
+}
+
+
+.mini-card-content p {
+
+    color: var(--text);
+
+    margin-bottom: 20px;
+
+}
+
+
+.mini-card-content button {
+
+    background: var(--primary);
+
+    color: white;
+
+    border: none;
+
+    border-radius: 30px;
+
+    padding: 10px 25px;
+
+    font-size: 16px;
+
+}
+
+
+/* =====================================================
+   PAGE BANNER
+===================================================== */
+
+.page-banner {
+
+    height: 230px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    background-size: cover;
+
+    background-position: center;
+
+    position: relative;
+
+}
+
+
+.page-banner::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background: rgba(255,255,255,0.68);
+
+}
+
+
+.page-banner h1,
+.page-banner p {
+
+    position: relative;
+
+    z-index: 2;
+
+}
+
+
+.page-banner h1 {
+
+    font-size: 42px;
+
+    font-weight: 400;
+
+}
+
+
+.page-banner p {
+
+    font-size: 19px;
+
+    margin-top: 15px;
+
+}
+
+
+.blogs-banner {
+
+    background-image: url(
+        "https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=2000&q=85"
+    );
+
+}
+
+
+.recipes-banner {
+
+    background-image: url(
+        "https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=2000&q=85"
+    );
+
+}
+
+
+/* =====================================================
+   BLOG PAGE
+===================================================== */
+
+.page-layout {
+
+    display: grid;
+
+    grid-template-columns: 2fr 0.85fr;
+
+    gap: 40px;
+
+    padding: 60px 3%;
+
+}
+
+
+.category-row {
+
+    display: flex;
+
+    gap: 10px;
+
+    margin-bottom: 25px;
+
+}
+
+
+.category-btn {
+
+    border: none;
+
+    background: white;
+
+    font-size: 18px;
+
+    padding: 8px 20px;
+
+}
+
+
+.category-btn.active {
+
+    border-bottom: 3px solid var(--primary);
+
+}
+
+
+.blog-item {
+
+    display: flex;
+
+    gap: 20px;
+
+    border: 1px solid #c8c8c8;
+
+    border-radius: 25px;
+
+    padding: 25px;
+
+    margin-bottom: 30px;
+
+    min-height: 380px;
+
+}
+
+
+.blog-item img {
+
+    width: 330px;
+
+    border-radius: 25px;
+
+    object-fit: cover;
+
+}
+
+
+.blog-info {
+
+    padding: 5px 0;
+
+}
+
+
+.date {
+
+    color: var(--primary);
+
+    font-size: 18px;
+
+}
+
+
+.blog-info h2 {
+
+    color: var(--primary);
+
+    font-weight: 400;
+
+    font-size: 30px;
+
+    margin: 25px 0;
+
+}
+
+
+.blog-info p {
+
+    font-size: 18px;
+
+    line-height: 1.8;
+
+}
+
+
+.reading-info {
+
+    display: flex;
+
+    gap: 40px;
+
+    margin: 35px 0;
+
+    color: var(--text);
+
+}
+
+
+.read-btn {
+
+    border: none;
+
+    background: var(--primary);
+
+    color: white;
+
+    padding: 12px 50px;
+
+    border-radius: 30px;
+
+    font-size: 18px;
+
+}
+
+
+/* COMMUNITY */
+
+.community-card {
+
+    border: 1px solid var(--primary);
+
+    border-radius: 20px;
+
+    padding: 60px 40px;
+
+    text-align: center;
+
+    height: fit-content;
+
+}
+
+
+.community-card h2 {
+
+    font-size: 30px;
+
+    font-weight: 400;
+
+    margin-bottom: 35px;
+
+}
+
+
+.community-card p {
+
+    font-size: 18px;
+
+    line-height: 1.8;
+
+    margin-bottom: 30px;
+
+}
+
+
+/* =====================================================
+   RECIPES
+===================================================== */
+
+.recipes-section {
+
+    padding: 50px 3%;
+
+}
+
+
+.recipes-section > h2 {
+
+    font-size: 32px;
+
+    font-weight: 400;
+
+    margin-bottom: 35px;
+
+}
+
+
+.recipe-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 40px;
+
+}
+
+
+.recipe-card {
+
+    border-radius: 25px;
+
+    overflow: hidden;
+
+    background: white;
+
+    box-shadow: 0 3px 12px rgba(0,0,0,0.12);
+
+}
+
+
+.recipe-image {
+
+    height: 330px;
+
+    position: relative;
+
+}
+
+
+.recipe-image img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+}
+
+
+.recipe-label {
+
+    position: absolute;
+
+    top: 15px;
+
+    left: 20px;
+
+    background: var(--primary);
+
+    color: white;
+
+    padding: 8px 30px;
+
+    border-radius: 25px;
+
+    font-size: 16px;
+
+}
+
+
+.rating {
+
+    position: absolute;
+
+    top: 15px;
+
+    right: 20px;
+
+    background: white;
+
+    padding: 8px 20px;
+
+    border-radius: 25px;
+
+    font-size: 16px;
+
+}
+
+
+.recipe-details {
+
+    padding: 25px;
+
+}
+
+
+.recipe-details h3 {
+
+    font-size: 25px;
+
+    margin-bottom: 10px;
+
+}
+
+
+.recipe-details p {
+
+    color: var(--text);
+
+    margin-bottom: 20px;
+
+}
+
+
+.recipe-details button {
+
+    background: var(--primary);
+
+    color: white;
+
+    border: none;
+
+    border-radius: 25px;
+
+    padding: 10px 25px;
+
+}
+
+
+/* =====================================================
+   WRITE BLOG
+===================================================== */
+
+.write-container {
+
+    max-width: 850px;
+
+    margin: auto;
+
+    padding: 70px 20px;
+
+}
+
+
+.write-container h1 {
+
+    font-size: 40px;
+
+    margin-bottom: 10px;
+
+}
+
+
+.write-container > p {
+
+    color: var(--text);
+
+    margin-bottom: 40px;
+
+}
+
+
+.write-form {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+
+}
+
+
+.write-form label {
+
+    font-weight: 700;
+
+    margin-top: 10px;
+
+}
+
+
+.write-form input,
+.write-form select,
+.write-form textarea {
+
+    padding: 15px;
+
+    border: 1px solid var(--accent-gray);
+
+    border-radius: 8px;
+
+    outline: none;
+
+    font-size: 17px;
+
+}
+
+
+.write-form input:focus,
+.write-form textarea:focus,
+.write-form select:focus {
+
+    border-color: var(--primary);
+
+}
+
+
+/* =====================================================
+   MODAL
+===================================================== */
+
+.modal {
+
+    display: none;
+
+    position: fixed;
+
+    z-index: 3000;
+
+    inset: 0;
+
+    background: rgba(0,0,0,0.45);
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 20px;
+
+}
+
+
+.modal.show {
+
+    display: flex;
+
+}
+
+
+.login-box,
+.register-box,
+.subscribe-box,
+.recipe-modal-box {
+
+    width: 100%;
+
+    max-width: 610px;
+
+    background: white;
+
+    border-radius: 20px;
+
+    padding: 40px;
+
+    position: relative;
+
+    box-shadow: 0 15px 50px rgba(0,0,0,0.2);
+
+}
+
+
+.login-box h1 {
+
+    text-align: center;
+
+    font-style: italic;
+
+    font-size: 30px;
+
+}
+
+
+.login-subtitle {
+
+    text-align: center;
+
+    color: var(--text);
+
+    margin-bottom: 25px;
+
+}
+
+
+.login-box h2 {
+
+    font-weight: 400;
+
+    margin-bottom: 20px;
+
+}
+
+
+.login-box label,
+.register-box label {
+
+    display: block;
+
+    font-size: 18px;
+
+    margin: 15px 0 8px;
+
+}
+
+
+.login-box input,
+.register-box input,
+.subscribe-box input {
+
+    width: 100%;
+
+    padding: 15px;
+
+    border: 1px solid #bbb;
+
+    border-radius: 6px;
+
+    font-size: 16px;
+
+    outline: none;
+
+}
+
+
+.password-box {
+
+    display: flex;
+
+    align-items: center;
+
+    border: 1px solid #bbb;
+
+    border-radius: 6px;
+
+}
+
+
+.password-box input {
+
+    border: none;
+
+}
+
+
+.password-box button {
+
+    border: none;
+
+    background: none;
+
+    padding: 10px;
+
+    font-size: 20px;
+
+}
+
+
+.forgot {
+
+    display: block;
+
+    text-align: right;
+
+    color: var(--primary);
+
+    margin: 20px 0;
+
+}
+
+
+.login-btn {
+
+    display: block;
+
+    width: 200px;
+
+    margin: auto;
+
+    border: none;
+
+    background: var(--primary);
+
+    color: white;
+
+    border-radius: 30px;
+
+    padding: 13px;
+
+    font-size: 18px;
+
+}
+
+
+.register-text {
+
+    text-align: center;
+
+    margin-top: 20px;
+
+}
+
+
+.register-text button {
+
+    border: none;
+
+    background: none;
+
+    color: var(--primary);
+
+    font-size: inherit;
+
+}
+
+
+.close-btn {
+
+    position: absolute;
+
+    right: 20px;
+
+    top: 15px;
+
+    border: none;
+
+    background: none;
+
+    font-size: 30px;
+
+}
+
+
+.subscribe-box {
+
+    text-align: center;
+
+}
+
+
+.subscribe-box h1 {
+
+    margin-bottom: 15px;
+
+}
+
+
+.subscribe-box p {
+
+    color: var(--text);
+
+    margin-bottom: 25px;
+
+}
+
+
+.subscribe-box form {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 15px;
+
+}
+
+
+.recipe-modal-box {
+
+    text-align: center;
+
+}
+
+
+.recipe-modal-box h1 {
+
+    color: var(--primary);
+
+    margin-bottom: 25px;
+
+}
+
+
+.recipe-modal-box p {
+
+    color: var(--text);
+
+    line-height: 1.8;
+
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.footer {
+
+    background: #222;
+
+    color: white;
+
+    padding-top: 50px;
+
+}
+
+
+.footer-content {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    padding: 0 5% 40px;
+
+}
+
+
+.footer h2 {
+
+    font-size: 30px;
+
+}
+
+
+.footer h2 span {
+
+    color: var(--primary);
+
+}
+
+
+.footer p {
+
+    color: #aaa;
+
+    margin-top: 10px;
+
+}
+
+
+.footer-links {
+
+    display: flex;
+
+    gap: 30px;
+
+}
+
+
+.footer-links a:hover {
+
+    color: var(--primary);
+
+}
+
+
+.footer-bottom {
+
+    border-top: 1px solid #444;
+
+    text-align: center;
+
+    padding: 20px;
+
+    color: #aaa;
+
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 1200px) {
+
+    .header-container {
+
+        gap: 15px;
+
+        padding: 0 20px;
+
+    }
+
+
+    .search-box {
+
+        width: 350px;
+
+    }
+
+
+    .navbar {
+
+        gap: 20px;
+
+    }
+
+
+    .navbar a {
+
+        font-size: 20px;
+
+    }
+
+}
+
+
+@media (max-width: 900px) {
+
+    .header {
+
+        height: 90px;
+
+    }
+
+
+    .header-container {
+
+        height: 90px;
+
+    }
+
+
+    .page {
+
+        padding-top: 90px;
+
+    }
+
+
+    .search-box {
+
+        display: none;
+
+    }
+
+
+    .navbar {
+
+        display: none;
+
+    }
+
+
+    .account-btn,
+    .subscribe-btn {
+
+        display: none;
+
+    }
+
+
+    .mobile-menu-btn {
+
+        display: block;
+
+        margin-left: auto;
+
+    }
+
+
+    .hero {
+
+        height: 600px;
+
+    }
+
+
+    .hero-content h1 {
+
+        font-size: 38px;
+
+    }
+
+
+    .hero-content p {
+
+        font-size: 20px;
+
+    }
+
+
+    .hero-buttons {
+
+        margin-top: 50px;
+
+        gap: 15px;
+
+    }
+
+
+    .home-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .page-layout {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .recipe-grid {
+
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .logo-text {
+
+        font-size: 20px;
+
+    }
+
+
+    .logo-icon {
+
+        font-size: 35px;
+
+    }
+
+
+    .hero {
+
+        height: 550px;
+
+    }
+
+
+    .hero-content {
+
+        padding: 20px;
+
+    }
+
+
+    .hero-content h1 {
+
+        font-size: 32px;
+
+    }
+
+
+    .hero-content p {
+
+        font-size: 18px;
+
+    }
+
+
+    .hero-buttons {
+
+        flex-direction: column;
+
+        margin-top: 35px;
+
+    }
+
+
+    .primary-btn,
+    .outline-btn {
+
+        font-size: 18px;
+
+    }
+
+
+    .mini-card {
+
+        flex-direction: column;
+
+    }
+
+
+    .mini-card img {
+
+        width: 100%;
+
+        height: 230px;
+
+    }
+
+
+    .blog-item {
+
+        flex-direction: column;
+
+    }
+
+
+    .blog-item img {
+
+        width: 100%;
+
+        height: 250px;
+
+    }
+
+
+    .recipe-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .footer-content {
+
+        flex-direction: column;
+
+        gap: 30px;
+
+    }
+
+
+    .footer-links {
+
+        flex-wrap: wrap;
+
+    }
+
+}

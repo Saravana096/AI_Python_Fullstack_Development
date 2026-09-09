@@ -1,0 +1,1138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TastyBites - Delicious Food Blog</title>
+
+    <!-- Lato Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Icons -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header class="header">
+
+    <div class="header-container">
+
+        <!-- LOGO -->
+        <a href="#" class="logo" onclick="showPage('home')">
+
+            <div class="logo-icon">
+                👨‍🍳
+            </div>
+
+            <div class="logo-text">
+                <span>Tasty</span>Bites
+                <small>DELICIOUS FOOD BLOG</small>
+            </div>
+
+        </a>
+
+
+        <!-- SEARCH -->
+        <div class="search-box">
+
+            <i class="fa-solid fa-magnifying-glass"></i>
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search here..."
+            >
+
+        </div>
+
+
+        <!-- NAVIGATION -->
+        <nav class="navbar">
+
+            <a href="#" onclick="showPage('home')">
+                Home
+            </a>
+
+            <a href="#" onclick="showPage('blogs')">
+                Blogs
+            </a>
+
+            <a href="#" onclick="showPage('recipes')">
+                Recipes
+            </a>
+
+            <a href="#" onclick="openWriteBlog()">
+                Write
+            </a>
+
+        </nav>
+
+
+        <!-- ACCOUNT -->
+        <button
+            class="account-btn"
+            onclick="openAccount()"
+        >
+            Account
+        </button>
+
+
+        <!-- SUBSCRIBE -->
+        <button
+            class="subscribe-btn"
+            onclick="openSubscribe()"
+        >
+            Subscribe
+        </button>
+
+
+        <!-- MOBILE MENU -->
+        <button
+            class="mobile-menu-btn"
+            onclick="toggleMobileMenu()"
+        >
+            <i class="fa-solid fa-bars"></i>
+        </button>
+
+    </div>
+
+</header>
+
+
+<!-- =====================================================
+     MAIN CONTENT
+===================================================== -->
+
+<main id="mainContent">
+
+
+<!-- =====================================================
+     HOME PAGE
+===================================================== -->
+
+<section id="homePage" class="page active-page">
+
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content">
+
+            <h1>
+                Discover Delicious Recipes Every Day
+            </h1>
+
+            <p>
+                Simple ingredients. Amazing flavors.
+                Cook with confidence and joy.
+            </p>
+
+            <div class="hero-buttons">
+
+                <button
+                    class="primary-btn"
+                    onclick="showPage('blogs')"
+                >
+                    Explore Blog
+                </button>
+
+                <button
+                    class="outline-btn"
+                    onclick="openWriteBlog()"
+                >
+                    Write a Blog
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- HOME CONTENT -->
+
+    <section class="home-content">
+
+        <h2>
+            Latest Food Stories
+        </h2>
+
+
+        <div class="home-grid">
+
+
+            <!-- CARD 1 -->
+
+            <article class="mini-card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=800&q=80"
+                    alt="Pasta"
+                >
+
+                <div class="mini-card-content">
+
+                    <span>
+                        Feb 24, 2026
+                    </span>
+
+                    <h3>
+                        Creamy Spinach & Mushroom Pasta
+                    </h3>
+
+                    <p>
+                        A comforting vegetarian pasta dish
+                        loaded with fresh ingredients.
+                    </p>
+
+                    <button onclick="readBlog('Creamy Spinach & Mushroom Pasta')">
+                        Read Now
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <!-- CARD 2 -->
+
+            <article class="mini-card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1553530666-ba11a7da3888?auto=format&fit=crop&w=800&q=80"
+                    alt="Mango Smoothie"
+                >
+
+                <div class="mini-card-content">
+
+                    <span>
+                        Feb 24, 2026
+                    </span>
+
+                    <h3>
+                        Refreshing Summer Mango Smoothie
+                    </h3>
+
+                    <p>
+                        A refreshing mango drink perfect
+                        for hot summer days.
+                    </p>
+
+                    <button onclick="readBlog('Refreshing Summer Mango Smoothie')">
+                        Read Now
+                    </button>
+
+                </div>
+
+            </article>
+
+
+        </div>
+
+    </section>
+
+</section>
+
+
+<!-- =====================================================
+     BLOGS PAGE
+===================================================== -->
+
+<section id="blogsPage" class="page">
+
+
+    <div class="page-banner blogs-banner">
+
+        <h1>
+            Explore Tasty Blogs
+        </h1>
+
+        <p>
+            Delicious stories, cooking tips and inspiration.
+        </p>
+
+    </div>
+
+
+    <div class="page-layout">
+
+
+        <!-- BLOG LIST -->
+
+        <div class="blog-list">
+
+            <div class="category-row">
+
+                <button
+                    class="category-btn active"
+                    onclick="filterBlogs('all', this)"
+                >
+                    Categories
+                </button>
+
+                <button
+                    class="category-btn"
+                    onclick="filterBlogs('Vegetarian', this)"
+                >
+                    Vegetarian
+                </button>
+
+                <button
+                    class="category-btn"
+                    onclick="filterBlogs('Dessert', this)"
+                >
+                    Dessert
+                </button>
+
+                <button
+                    class="category-btn"
+                    onclick="filterBlogs('Healthy', this)"
+                >
+                    Healthy
+                </button>
+
+            </div>
+
+
+            <!-- BLOG 1 -->
+
+            <article
+                class="blog-item"
+                data-category="Vegetarian"
+            >
+
+                <img
+                    src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=800&q=80"
+                    alt="Pasta"
+                >
+
+                <div class="blog-info">
+
+                    <span class="date">
+                        Feb 24, 2026
+                    </span>
+
+                    <h2>
+                        Creamy Spinach & Mushroom Pasta
+                    </h2>
+
+                    <p>
+                        A comforting vegetarian pasta dish loaded
+                        with fresh spinach, mushrooms, and creamy sauce.
+                    </p>
+
+                    <div class="reading-info">
+
+                        <span>
+                            <i class="fa-regular fa-book-open"></i>
+                            📖 Read 5 min
+                        </span>
+
+                        <span>
+                            By, Charles
+                        </span>
+
+                    </div>
+
+                    <button
+                        class="read-btn"
+                        onclick="readBlog('Creamy Spinach & Mushroom Pasta')"
+                    >
+                        Read Now
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <!-- BLOG 2 -->
+
+            <article
+                class="blog-item"
+                data-category="Healthy"
+            >
+
+                <img
+                    src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=800&q=80"
+                    alt="Healthy salad"
+                >
+
+                <div class="blog-info">
+
+                    <span class="date">
+                        Feb 23, 2026
+                    </span>
+
+                    <h2>
+                        Fresh & Healthy Garden Salad
+                    </h2>
+
+                    <p>
+                        Fresh vegetables and delicious dressing
+                        combined into a healthy everyday meal.
+                    </p>
+
+                    <div class="reading-info">
+
+                        <span>
+                            📖 Read 4 min
+                        </span>
+
+                        <span>
+                            By, Sarah
+                        </span>
+
+                    </div>
+
+                    <button
+                        class="read-btn"
+                        onclick="readBlog('Fresh & Healthy Garden Salad')"
+                    >
+                        Read Now
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <!-- BLOG 3 -->
+
+            <article
+                class="blog-item"
+                data-category="Dessert"
+            >
+
+                <img
+                    src="https://www.gurmanija.rs/images/1000018144.webp"
+                    alt="Chocolate dessert"
+                >
+
+                <div class="blog-info">
+
+                    <span class="date">
+                        Feb 22, 2026
+                    </span>
+
+                    <h2>
+                        Chocolate Lava Cake
+                    </h2>
+
+                    <p>
+                        A rich chocolate dessert with a warm,
+                        gooey center.
+                    </p>
+
+                    <div class="reading-info">
+
+                        <span>
+                            📖 Read 6 min
+                        </span>
+
+                        <span>
+                            By, Emma
+                        </span>
+
+                    </div>
+
+                    <button
+                        class="read-btn"
+                        onclick="readBlog('Chocolate Lava Cake')"
+                    >
+                        Read Now
+                    </button>
+
+                </div>
+
+            </article>
+
+        </div>
+
+
+        <!-- SUBSCRIBE CARD -->
+
+        <aside class="community-card">
+
+            <h2>
+                Join the TastyBites Community
+            </h2>
+
+            <p>
+                Love delicious recipes? Don't miss out on
+                our latest food blogs and cooking tips!
+            </p>
+
+            <button
+                class="primary-btn"
+                onclick="openSubscribe()"
+            >
+                Subscribe Now
+            </button>
+
+            <p>
+                Our email newsletter delivers our new recipes
+                and latest updates. It's always free and you can
+                unsubscribe any time.
+            </p>
+
+        </aside>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     RECIPES PAGE
+===================================================== -->
+
+<section id="recipesPage" class="page">
+
+
+    <div class="page-banner recipes-banner">
+
+        <h1>
+            Explore Tasty Recipes
+        </h1>
+
+        <p>
+            From quick meals to gourmet delights,
+            find the perfect recipe for every occasion.
+        </p>
+
+    </div>
+
+
+    <section class="recipes-section">
+
+        <h2>
+            Most Popular Recipe Collections
+        </h2>
+
+
+        <div class="recipe-grid">
+
+
+            <!-- RECIPE 1 -->
+
+            <article class="recipe-card">
+
+                <div class="recipe-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=900&q=80"
+                        alt="Avocado toast"
+                    >
+
+                    <span class="recipe-label">
+                        Recipe
+                    </span>
+
+                    <span class="rating">
+                        ⭐ 4.5
+                    </span>
+
+                </div>
+
+                <div class="recipe-details">
+
+                    <h3>
+                        Healthy Avocado Toast
+                    </h3>
+
+                    <p>
+                        Fresh avocado with poached egg
+                        and delicious seasoning.
+                    </p>
+
+                    <button onclick="openRecipe('Healthy Avocado Toast')">
+                        View Recipe
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <!-- RECIPE 2 -->
+
+            <article class="recipe-card">
+
+                <div class="recipe-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&w=900&q=80"
+                        alt="Grilled salmon"
+                    >
+
+                    <span class="recipe-label">
+                        Recipe
+                    </span>
+
+                    <span class="rating">
+                        ⭐ 4.5
+                    </span>
+
+                </div>
+
+                <div class="recipe-details">
+
+                    <h3>
+                        Grilled Salmon
+                    </h3>
+
+                    <p>
+                        Perfectly grilled salmon served
+                        with fresh asparagus.
+                    </p>
+
+                    <button onclick="openRecipe('Grilled Salmon')">
+                        View Recipe
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <!-- RECIPE 3 -->
+
+            <article class="recipe-card">
+
+                <div class="recipe-image">
+
+                    <img
+                        src="https://www.gurmanija.rs/images/1000018144.webp"
+                        alt="Chocolate lava cake"
+                    >
+
+                    <span class="recipe-label">
+                        Recipe
+                    </span>
+
+                    <span class="rating">
+                        ⭐ 4.5
+                    </span>
+
+                </div>
+
+                <div class="recipe-details">
+
+                    <h3>
+                        Chocolate Lava Cake
+                    </h3>
+
+                    <p>
+                        Warm chocolate cake with
+                        a delicious molten center.
+                    </p>
+
+                    <button onclick="openRecipe('Chocolate Lava Cake')">
+                        View Recipe
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <!-- RECIPE 4 -->
+
+            <article class="recipe-card">
+
+                <div class="recipe-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=900&q=80"
+                        alt="Burger"
+                    >
+
+                    <span class="recipe-label">
+                        Recipe
+                    </span>
+
+                    <span class="rating">
+                        ⭐ 4.7
+                    </span>
+
+                </div>
+
+                <div class="recipe-details">
+
+                    <h3>
+                        Classic Cheese Burger
+                    </h3>
+
+                    <p>
+                        Juicy homemade burger with
+                        fresh vegetables and cheese.
+                    </p>
+
+                    <button onclick="openRecipe('Classic Cheese Burger')">
+                        View Recipe
+                    </button>
+
+                </div>
+
+            </article>
+
+
+        </div>
+
+    </section>
+
+</section>
+
+
+<!-- =====================================================
+     WRITE BLOG PAGE
+===================================================== -->
+
+<section id="writePage" class="page">
+
+
+    <div class="write-container">
+
+        <h1>
+            Write Your Blog
+        </h1>
+
+        <p>
+            Share your delicious food stories with
+            the TastyBites community.
+        </p>
+
+
+        <form
+            id="blogForm"
+            class="write-form"
+        >
+
+            <label>
+                Blog Title
+            </label>
+
+            <input
+                type="text"
+                id="blogTitle"
+                placeholder="Enter your blog title"
+                required
+            >
+
+
+            <label>
+                Category
+            </label>
+
+            <select id="blogCategory">
+
+                <option value="Food">
+                    Food
+                </option>
+
+                <option value="Recipe">
+                    Recipe
+                </option>
+
+                <option value="Healthy">
+                    Healthy
+                </option>
+
+                <option value="Dessert">
+                    Dessert
+                </option>
+
+            </select>
+
+
+            <label>
+                Your Blog
+            </label>
+
+            <textarea
+                id="blogContent"
+                rows="10"
+                placeholder="Write your food story..."
+                required
+            ></textarea>
+
+
+            <button
+                type="submit"
+                class="primary-btn"
+            >
+                Publish Blog
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+<!-- =====================================================
+     LOGIN MODAL
+===================================================== -->
+
+<div
+    id="loginModal"
+    class="modal"
+>
+
+    <div class="login-box">
+
+        <button
+            class="close-btn"
+            onclick="closeModal('loginModal')"
+        >
+            ×
+        </button>
+
+
+        <h1>
+            “Welcome Back, Food Lover!”
+        </h1>
+
+        <p class="login-subtitle">
+            Discover, cook, and share delicious recipes.
+        </p>
+
+
+        <h2>
+            Login to Your Account
+        </h2>
+
+
+        <form id="loginForm">
+
+            <label>
+                User Name/ Email Id
+            </label>
+
+            <input
+                type="text"
+                id="loginEmail"
+                placeholder="Enter User name or Email Id"
+                required
+            >
+
+
+            <label>
+                Password
+            </label>
+
+            <div class="password-box">
+
+                <input
+                    type="password"
+                    id="loginPassword"
+                    placeholder="Enter Password"
+                    required
+                >
+
+                <button
+                    type="button"
+                    onclick="togglePassword()"
+                >
+                    👁
+                </button>
+
+            </div>
+
+
+            <a
+                href="#"
+                class="forgot"
+                onclick="forgotPassword()"
+            >
+                Forget Password?
+            </a>
+
+
+            <button
+                type="submit"
+                class="login-btn"
+            >
+                Login
+            </button>
+
+        </form>
+
+
+        <p class="register-text">
+
+            Don't have an account?
+
+            <button onclick="openRegister()">
+                Register
+            </button>
+
+        </p>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     REGISTER MODAL
+===================================================== -->
+
+<div
+    id="registerModal"
+    class="modal"
+>
+
+    <div class="register-box">
+
+        <button
+            class="close-btn"
+            onclick="closeModal('registerModal')"
+        >
+            ×
+        </button>
+
+
+        <h1>
+            Create Account
+        </h1>
+
+        <p>
+            Join the TastyBites community.
+        </p>
+
+
+        <form id="registerForm">
+
+            <label>
+                Full Name
+            </label>
+
+            <input
+                type="text"
+                id="registerName"
+                placeholder="Enter your name"
+                required
+            >
+
+
+            <label>
+                Email
+            </label>
+
+            <input
+                type="email"
+                id="registerEmail"
+                placeholder="Enter your email"
+                required
+            >
+
+
+            <label>
+                Password
+            </label>
+
+            <input
+                type="password"
+                id="registerPassword"
+                placeholder="Create password"
+                required
+            >
+
+
+            <button
+                type="submit"
+                class="login-btn"
+            >
+                Sign Up
+            </button>
+
+        </form>
+
+
+        <p class="register-text">
+
+            Already have an account?
+
+            <button onclick="openLogin()">
+                Login
+            </button>
+
+        </p>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     SUBSCRIBE MODAL
+===================================================== -->
+
+<div
+    id="subscribeModal"
+    class="modal"
+>
+
+    <div class="subscribe-box">
+
+        <button
+            class="close-btn"
+            onclick="closeModal('subscribeModal')"
+        >
+            ×
+        </button>
+
+
+        <h1>
+            Join the TastyBites Community
+        </h1>
+
+        <p>
+            Get delicious recipes and latest food
+            updates directly in your inbox.
+        </p>
+
+
+        <form id="subscribeForm">
+
+            <input
+                type="email"
+                id="subscribeEmail"
+                placeholder="Enter your email"
+                required
+            >
+
+            <button
+                type="submit"
+                class="primary-btn"
+            >
+                Subscribe Now
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     RECIPE MODAL
+===================================================== -->
+
+<div
+    id="recipeModal"
+    class="modal"
+>
+
+    <div class="recipe-modal-box">
+
+        <button
+            class="close-btn"
+            onclick="closeModal('recipeModal')"
+        >
+            ×
+        </button>
+
+        <h1 id="recipeModalTitle">
+            Recipe
+        </h1>
+
+        <div id="recipeModalContent"></div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="footer">
+
+    <div class="footer-content">
+
+        <div>
+
+            <h2>
+                Tasty<span>Bites</span>
+            </h2>
+
+            <p>
+                Delicious food. Amazing recipes.
+                Happy cooking.
+            </p>
+
+        </div>
+
+
+        <div class="footer-links">
+
+            <a href="#" onclick="showPage('home')">
+                Home
+            </a>
+
+            <a href="#" onclick="showPage('blogs')">
+                Blogs
+            </a>
+
+            <a href="#" onclick="showPage('recipes')">
+                Recipes
+            </a>
+
+            <a href="#" onclick="openWriteBlog()">
+                Write
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        © 2026 TastyBites. All Rights Reserved.
+
+    </div>
+
+</footer>
+
+
+<!-- JavaScript -->
+<script src="script.js"></script>
+
+</body>
+
+</html>
